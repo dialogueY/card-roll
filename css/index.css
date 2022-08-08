@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html,
+body {
+    height: 100%;
+    background: url(../img/bg.jpg) 0 0 no-repeat;
+}
+
+.fd-card-box {
+    padding-top: 20%;
+}
+
+/* 主要样式 */
+.fd-card-box {
+    display: flex;
+}
+
+/* 箭头 */
+.fd-switch-box {
+    position: relative;
+    width: 250px;
+    height: 170px;
+    cursor: pointer;
+}
+
+.fd-arrow {
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    background-position: 0 43px;
+    background-repeat: no-repeat;
+}
+
+.fd-arrow3 {
+    right: -10px;
+    width: 88px;
+    background-image: url("../img/switchBtn/icon02.png");
+}
+
+.fd-arrow2 {
+    right: 70px;
+    width: 65px;
+    background-image: url("../img/switchBtn/icon03.png");
+}
+
+.fd-arrow1 {
+    right: 133px;
+    width: 54px;
+    background-image: url("../img/switchBtn/icon04.png");
+    background-position: 0 40px;
+}
+
+.left {
+    text-align: right;
+}
+
+.right {
+    text-align: left;
+    transform: rotateY(180deg);
+}
+
+.animate .fd-arrow {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.animate .fd-arrow3 {
+    animation-name: opacity3;
+}
+
+@keyframes opacity3 {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
+
+.animate .fd-arrow2 {
+    animation-name: opacity2;
+}
+
+@keyframes opacity2 {
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+}
+
+.animate .fd-arrow1 {
+    animation-name: opacity1;
+}
+
+@keyframes opacity1 {
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 中间区域 */
+.fd-list-main {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    font-size: 0;
+    white-space: nowrap;
+
+    /* 设置视距离为1000 */
+    perspective: 1000px;
+    user-select: none;
+}
+
+.fd-list-content {
+    position: relative;
+    left: 0;
+    width: 0;
+    height: 198px;
+
+    /* //设置旋转为3d旋转 */
+    transform-style: preserve-3d;
+}
+
+.fd-list-item {
+    display: inline-block;
+    margin: 0 6px;
+    padding-top: 20px;
+    width: 300px;
+    height: 100%;
+    overflow: hidden;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: top;
+    background: url("../img/card/card-bg.png") center no-repeat;
+    cursor: pointer;
+}
+
+.fd-left-model {
+    position: relative;
+    padding: 0 20px;
+
+    /* //设置y轴的旋转角度 */
+    transform: rotateY(336deg) rotateZ(2deg) scale(1.41, 1);
+
+    /* //设置旋转的轴心 */
+    transform-origin: right;
+}
+
+.fd-right-model {
+    position: relative;
+    padding: 0 20px;
+
+    /* //设置y轴的旋转角度 */
+    transform: rotateY(24deg) rotateZ(-2deg) scale(1.41, 1);
+
+    /* //设置旋转的轴心 */
+    transform-origin: left;
+}
+
+.fd-center-model {
+    position: relative;
+    width: 350px;
+    height: 100%;
+    background-image: url("../img/card/card-bg-big.png");
+}
+
+.fd-title {
+    color: #fbae03;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.fd-center-model .fd-title {
+    font-size: 18px;
+}
+
+.fd-right-model .fd-title,
+.fd-left-model .fd-title {
+    padding-top: 24px;
+}
+
+.fd-fy-list {
+    height: 30px;
+    font-size: 0;
+    text-align: center;
+}
+
+.fd-fy-list-li {
+    display: inline-block;
+    margin: 14px 16px;
+    width: 64px;
+    height: 8px;
+    vertical-align: top;
+    border-radius: 4px;
+    background-color: #209cff;
+    cursor: pointer;
+}
+
+.fd-fy-list-li.active {
+    background: linear-gradient(to left, #209cff, #68e0cf);
+}

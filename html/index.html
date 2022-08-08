@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card-roll</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div id="app" class="fd-card-box" ref="cardBox"
+            @mouseover="mouseoverBottom"
+            @mouseleave ="initTime">
+        <!-- 左边的三个箭头 可以不要 -->
+        <div class="fd-switch-box left" @click="gotToPrev">
+            <span class="fd-arrow fd-arrow1"></span>
+            <span class="fd-arrow fd-arrow2"></span>
+            <span class="fd-arrow fd-arrow3"></span>
+        </div>
+        <!-- 中间主要部分 -->
+        <!-- 需要移动的盒子 -->
+        <div class="fd-list-main">
+            <ul  id="List"
+                ref="List"
+                class="fd-list-content">
+                <!-- 卡片 -->
+                <li v-for="(item,index) in cardList"
+                    :key="item.code + index"
+                    :class="['fd-list-item',
+                        {'fd-left-model':index<startIndex-1},
+                        {'fd-left-model':index===startIndex-1},
+                        {'fd-center-model':index===startIndex||index===startIndex+1},
+                        {'fd-right-model':index===startIndex+2},
+                        {'fd-right-model':index>startIndex+2}
+                    ]">
+                    <p class="fd-title">{{item.name}}</p>
+                    <div class="fd-content" :class="'fd-code-'+item.code">内容{{index + 1}}</div>
+                </li>
+            </ul>
+            <!-- 翻页 -->
+            <ul class="fd-fy-list">
+                <li  v-for="item in screens"
+                    @click.stop="goToPage(item)"
+                    :class="['fd-fy-list-li', activePage===item ? 'active' : '']"
+                    :key="item">
+                </li>
+            </ul>
+        </div>
+        <!-- 右边的三个箭头 -->
+        <div class="fd-switch-box right"  @click="goToNext">
+            <span class="fd-arrow fd-arrow1"></span>
+            <span class="fd-arrow fd-arrow2"></span>
+            <span class="fd-arrow fd-arrow3"></span>
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
